@@ -11,7 +11,7 @@
 
 </head>
 <body>
-  <audio id="bg-music" src="music/Tera Chehra(MP3_160K).mp3" preload="auto"></audio>
+  <audio id="bg-music" src="music/Tera%20Chehra%28MP3_160K%29.mp3" preload="auto" autoplay playsinline></audio>
     <!-- Inicio -->
   <section class="inicio">
     <div class="contenido">
@@ -65,7 +65,7 @@ par dil ne dheere-dheere tumhe apna bana liya.💕</p>
           <p>Phir 20 December 2020 aaya.
 Na koi shor, na koi dikhawa
 bas ek simple sa proposal aur tumhari haan.
-Us din samjha, pyaar shayad aisa hi hota hai—
+Us din samjha, pyaar shayad aisa hi hota hai
 shaant, par gehra.💕</p>
         </div>
       </div>
@@ -78,7 +78,10 @@ shaant, par gehra.💕</p>
         </div>
         <div class="texto">
           <h3><i class="fas fa-people-group"></i> Promise</h3>
-          <p>Este día conocí a tus amigos jajaja, casi se me sale el corazón, la pasé muy bien. ❤️</p>
+          <p>Main perfect wada nahi karta,
+bas itna sach hai main tumse pyaar karta hoon.
+Aasaan ho ya mushkil, tumhara saath kabhi nahi chhodunga.
+Tum meri ho, aur main hamesha tumhara rahunga. 💕❤️</p>
         </div>
       </div>
     </div>
@@ -182,14 +185,21 @@ aur main dil se hamesha tumhara hoon ❤️
     if (!audio) return;
     audio.loop = true;
 
+    const events = ['pointerdown', 'touchstart', 'touchend', 'click'];
     const playOnce = () => {
-      audio.play().catch(() => {});
-      document.removeEventListener('click', playOnce);
-      document.removeEventListener('touchstart', playOnce);
+      try {
+        audio.play();
+      } catch (e) {}
+      events.forEach(ev => {
+        document.removeEventListener(ev, playOnce, { capture: true });
+        window.removeEventListener(ev, playOnce, { capture: true });
+      });
     };
 
-    document.addEventListener('click', playOnce, { once: true });
-    document.addEventListener('touchstart', playOnce, { once: true });
+    events.forEach(ev => {
+      document.addEventListener(ev, playOnce, { once: true, passive: true, capture: true });
+      window.addEventListener(ev, playOnce, { once: true, passive: true, capture: true });
+    });
   })();
 </script>
 
