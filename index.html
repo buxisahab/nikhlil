@@ -12,6 +12,15 @@
 </head>
 <body>
   <audio id="bg-music" src="music/Tera%20Chehra%28MP3_160K%29.mp3" preload="auto" autoplay playsinline></audio>
+  <style>
+    .music-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.65); display: none; align-items: center; justify-content: center; z-index: 9999; }
+    .music-modal .box { background: #fff; color:#111; width: min(92vw, 420px); border-radius: 14px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); text-align: center; }
+    .music-modal h3 { margin: 6px 0 4px; font-size: 1.25rem; }
+    .music-modal p { margin: 0 0 16px; font-size: .95rem; color:#444; }
+    .music-modal .actions { display:flex; gap:10px; justify-content:center; }
+    .music-modal button { appearance:none; border:0; border-radius:10px; padding:10px 16px; font-weight:600; cursor:pointer; }
+    .music-modal .play { background:#e11d48; color:#fff; }
+  </style>
     <!-- Inicio -->
   <section class="inicio">
     <div class="contenido">
@@ -20,6 +29,16 @@
 Love you always.Meri Payari Sakshi💕</p>
     </div>
   </section>
+
+  <div id="music-modal" class="music-modal" role="dialog" aria-modal="true">
+    <div class="box">
+      <h3>Play Music?</h3>
+      <p>Tap the button to start the background song.</p>
+      <div class="actions">
+        <button id="play-music-btn" class="play">Play music</button>
+      </div>
+    </div>
+  </div>
 
     <!-- Línea de tiempo -->
     <section class="historia">
@@ -184,6 +203,36 @@ aur main dil se hamesha tumhara hoon ❤️
     const audio = document.getElementById('bg-music');
     if (!audio) return;
     audio.loop = true;
+
+    // Music popup logic
+    const modal = document.getElementById('music-modal');
+    const playBtn = document.getElementById('play-music-btn');
+    const showModal = () => {
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    };
+    const hideModal = () => {
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    };
+
+    // Show popup after DOM is ready if audio hasn't started yet
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => { if (audio.paused) showModal(); });
+    } else {
+      if (audio.paused) showModal();
+    }
+
+    // Play on button tap and close popup
+    if (playBtn) {
+      playBtn.addEventListener('click', () => {
+        audio.play().finally(hideModal);
+      }, { once: true });
+    }
 
     const events = ['pointerdown', 'touchstart', 'touchend', 'click', 'scroll', 'touchmove', 'wheel'];
     const playOnce = () => {
