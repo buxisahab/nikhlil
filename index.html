@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Love You Succhu 💖</title>
+  <link rel="stylesheet" href="style.css" />
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+
+</head>
+<body>
+  <audio id="bg-music" src="music/Tera Chehra(MP3_160K).mp3" preload="auto"></audio>
+    <!-- Inicio -->
+  <section class="inicio">
+    <div class="contenido">
+      <h1>Happy 6th anniversary, my love 💘Succhu💖</h1>
+      <p class="frase">Six years felt long, but with you every moment was pure love.
+Love you always.Meri Payari Sakshi💕</p>
+    </div>
+  </section>
+
+    <!-- Línea de tiempo -->
+    <section class="historia">
+  <h2>Our History 📖</h2>
+  <div class="timeline">
+
+    <div class="evento izquierda fade-in">
+      <div class="contenido">
+        <div class="img-circular">
+            <img src="images/twitch.png" alt="Nos conocimos">
+        </div>
+
+        <div class="texto">
+          <h3><i class="fas fa-heart"></i> We Met</h3>
+          <p>Main tumse pehli dafa school mein mila tha. Yaad hai kitni ladaiyan hoti thi hamari kabhi gaane ko le kar, kabhi meri harkaton par.
+Par sach ye hai ki main tumse pehle din se hi pyaar karta tha. Bas dar lagta tha… isliye apni feelings kabhi keh hi nahi paaya.” 💕💫</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="evento derecha fade-in">
+      <div class="contenido">
+        <div class="img-circular">
+            <img src="images/primermensaje.png" alt="Primer mensaje">
+        </div>
+        <div class="texto">
+          <h3><i class="fas fa-comment-dots"></i>Remember that online class</h3>
+          <p>Kabhi socha nahi tha ki Village of Palampur ki ek online class
+meri zindagi ki itni badi kahani ban jaayegi.
+2019 mein bas baat shuru hui thi, bilkul simple si…
+par dil ne dheere-dheere tumhe apna bana liya.💕</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="evento izquierda fade-in">
+      <div class="contenido">
+        <div class="img-circular">
+            <img src="images/Primeranno.png" alt="Primera cita">
+        </div>
+        <div class="texto">
+          <h3><i class="fas fa-heart"></i> Purposal</h3>
+          <p>Phir 20 December 2020 aaya.
+Na koi shor, na koi dikhawa
+bas ek simple sa proposal aur tumhari haan.
+Us din samjha, pyaar shayad aisa hi hota hai—
+shaant, par gehra.💕</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="evento derecha fade-in">
+      <div class="contenido">
+        <div class="img-circular">
+            <img src="images/Primerasalida.png" alt="Primera salida">
+        </div>
+        <div class="texto">
+          <h3><i class="fas fa-people-group"></i> Promise</h3>
+          <p>Este día conocí a tus amigos jajaja, casi se me sale el corazón, la pasé muy bien. ❤️</p>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<!-- Galería de fotos -->
+     <section class="galeria">
+        <h2>📸 Photo Gallery</h2>
+        <p class="descripcion">Our best moments together💘</p>
+
+        <div class="carrusel">
+          <button class="flecha izq">&#10094;</button>
+
+          <div class="carrusel-fotos">
+            <div class="foto">
+              <img src="images/sn (1).jpeg" alt="Picnic en enero">
+              <p class="pie"></p>
+            </div>
+            <div class="foto">
+              <img src="images/sn (3).jpeg" alt="Cine en febrero">
+              <p class="pie"></p>
+            </div>
+            <div class="foto">
+              <img src="images/sn (4).jpeg" alt="Playa en abril">
+              <p class="pie"></p>
+            </div>
+            <!-- Agrega más fotos -->
+          </div>
+
+          <button class="flecha der">&#10095;</button>
+        </div>
+      </section>
+
+<!-- Carta -->
+
+<section class="carta">
+  <h2>💌 Click the envelope</h2>
+  <p class="descripcion">How wonderful to be able to feel this and to be able to tell you... 📬</p>
+
+  <div class="sobre-imagen" id="sobre-imagen">
+    <img src="images/sobre.png" alt="Sobre con carta" />
+    <div class="hoja" id="hoja">
+      <span class="cerrar" id="cerrar-carta">&times;</span>
+      <div class="contenido-carta" id="contenido-carta">
+        <p>Meri Jaan,</p>
+        <p>Sakshi…
+main tumse bahut zyada pyaar karta hoon.
+Aisa pyaar jo har baar bolna zaroori nahi hota,
+par har pal mehsoos hota hai.✨</p>
+<p>Main perfect nahi hoon,
+par tum mere liye
+sabse perfect ho.
+Bas itna jaan lo
+tum meri ho,
+aur main dil se hamesha tumhara hoon ❤️
+</p>
+        <p>- Love You Sakshi🧑🏻‍❤️‍👩🏻</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cierre">
+  <br><br><br><br><br><br>
+  <h2>Thank you for sharing this journey with me 💖</h2>
+  <p class="mensaje-final">This is just the beginning of our story...</p>
+  <div class="corazones-container"></div>
+</section>
+
+</section>
+
+
+
+
+<script src="script.js"></script>
+
+<script>
+  function crearCorazonesFlotantes() {
+    const contenedor = document.querySelector('.corazones-container');
+    if (!contenedor) return;
+
+    const corazon = document.createElement('span');
+    corazon.textContent = '�';
+    corazon.style.left = Math.random() * 100 + '%';
+    corazon.style.bottom = '0';
+
+    contenedor.appendChild(corazon);
+
+    setTimeout(() => {
+      corazon.remove();
+    }, 4000);
+  }
+
+  setInterval(crearCorazonesFlotantes, 800);
+</script>
+
+<script>
+  (function () {
+    const audio = document.getElementById('bg-music');
+    if (!audio) return;
+    audio.loop = true;
+
+    const playOnce = () => {
+      audio.play().catch(() => {});
+      document.removeEventListener('click', playOnce);
+      document.removeEventListener('touchstart', playOnce);
+    };
+
+    document.addEventListener('click', playOnce, { once: true });
+    document.addEventListener('touchstart', playOnce, { once: true });
+  })();
+</script>
+
+
+</body>
+</html>
